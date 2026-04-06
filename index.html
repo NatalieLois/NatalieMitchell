@@ -218,6 +218,31 @@ footer {
   font-size: 11px; letter-spacing: 0.1em;
   color: rgba(237,232,224,0.3); margin-top: 6px; font-weight: 400;
 }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 24px 6vw;
+}
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px; letter-spacing: 0.14em; color: rgba(255,255,255,0.7);
+  text-transform: uppercase; min-width: 160px;
+}
+.nav-links {
+  display: flex; gap: 36px; list-style: none;
+  margin: 0; padding: 0;
+}
+.nav-links a {
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,255,255,0.45); text-decoration: none;
+  transition: color 0.2s; font-weight: 400;
+  font-family: 'Barlow', sans-serif;
+}
+.nav-links a:hover { color: rgba(255,255,255,0.8); }
+.nav-links a.active { color: #fff; font-weight: 500; }
+.nav-spacer { min-width: 160px; }
+
 </style>
 </head>
 <body>
