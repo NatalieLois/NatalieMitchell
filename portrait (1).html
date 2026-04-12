@@ -330,25 +330,29 @@ footer {
 </nav>
 
 <section class="hero">
-  <div class="hero-bg" id="heroBg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <p class="hero-eyebrow">Aerial Photography</p>
-    <h1 class="hero-title">Above<br>the <span>Edge</span></h1>
-    <p class="hero-sub">Western Australia &nbsp;&mdash;&nbsp; Landscape &amp; People</p>
+  <div class="hero-left">
+    <h1>Aerial<br><em>Photography</em></h1>
   </div>
-  <div class="hero-scroll">Scroll</div>
+  <div class="hero-right">
+    <p class="hero-desc">Drone photography above Western Australia — red cliffs, turquoise waters and vast open country, shot from above.</p>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num" id="totalCount">10</div>
+        <div class="stat-label">Images</div>
+      </div>
+      <div>
+        <div class="stat-num">1</div>
+        <div class="stat-label">Country</div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <div style="height: 0;" id="gallery"></div>
 
 
 
-<div class="section-label">
-  <span class="section-label-text">Selected Work</span>
-  <div class="section-label-line"></div>
-  <span class="photo-count" id="countLabel">10 images</span>
-</div>
+
 
 <div class="gallery" id="galleryGrid"></div>
 
@@ -412,15 +416,13 @@ function buildGallery() {
   grid.innerHTML = '';
   visibleIndices = [];
   META.forEach((m, i) => {
-    const visible = activeFilter === 'All' || m.cat === activeFilter;
-    if (visible) visibleIndices.push(i);
+    visibleIndices.push(i);
     const card = document.createElement('div');
-    card.className = 'photo-card' + (visible ? '' : ' hidden');
+    card.className = 'photo-card';
     card.dataset.index = i;
     card.innerHTML = `
       <img src="${PHOTOS[m.key]}" alt="${m.title}" loading="lazy">
       <div class="photo-caption">
-        <span class="caption-cat">${m.cat}</span>
         <div class="caption-title">${m.title}</div>
         <div class="caption-loc">${m.location}</div>
       </div>
@@ -430,7 +432,6 @@ function buildGallery() {
   });
   document.getElementById('countLabel').textContent = META.length + ' images';
 }
-
 buildGallery();
 
 // Filter
