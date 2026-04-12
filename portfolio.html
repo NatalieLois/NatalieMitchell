@@ -403,9 +403,6 @@ const META = [
   {key: "panorama4", title: "Kalbarri Skywalk", location: "Kalbarri National Park, WA", cat: "Landscape"},
 ];
 
-// Inject hero image
-document.getElementById('heroBg').style.backgroundImage = `url(${PHOTOS['panorama4']})`;
-
 // Build gallery
 const grid = document.getElementById('galleryGrid');
 
@@ -430,7 +427,6 @@ function buildGallery() {
     card.addEventListener('click', () => openLightbox(i));
     grid.appendChild(card);
   });
-  document.getElementById('countLabel').textContent = META.length + ' images';
 }
 buildGallery();
 
